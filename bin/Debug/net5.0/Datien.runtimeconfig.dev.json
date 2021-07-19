@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/home/edenalem/.dotnet/store/|arch|/|tfm|",
+      "/home/edenalem/.nuget/packages"
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+@model IEnumerable<Datien.Models.EducationInstitution>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@{Layout="../Shared/_HomeLayout.cshtml";}
+<!-- Main -->
+<div id="main" class="wrapper style1">
+    <div class="container">
+        <header class="major">
+            <h2>Educational Institute</h2>
+            <p>Quality Education in Africa</p>
+        </header>
+
+        <!-- Text -->
+            <section>
+
+                <blockquote>Please situate your sit at the place of your institution while filling in these data. Thank you for taking an initiative as an institution to help contribute on reliable data availability. Become a change-maker and help represent your country. It starts with you!</blockquote>
+                
+            </section>
+
+        <!-- Form -->
+            <section>
+                <form method="post" action="#">
+                    <div class="row gtr-uniform gtr-50">
+                        <div class="col-6 col-12-xsmall">
+                            <input type="text" name="name" id="name" value="" placeholder="Institution Name" />
+                        </div>
+                        <div class="col-6 col-12-xsmall">
+                            <input type="email" name="email" id="email" value="" placeholder="Full Name" />
+                        </div>
+                        <div class="col-12">
+                            <select name="category" id="category">
+                                <option value="">- Category -</option>
+                                <option value="1">Primary - Elementary School</option>
+                                <option value="1">Secondary - High School</option>
+                                <option value="1">Higher Education Institue</option>
+                                <option value="1">Elementary and High School</option>
+                            </select>
+                        </div>
+                        <div class="col-6 col-12">
+                            <label>Legal Certificate</label>
+                            <input type="file" name="name" id="name" value="" placeholder="Legal Certificate" />
+                        </div>
+                        <div class="col-6 col-12">
+                            <input type="text" name="name" id="name" value="" placeholder="Country" />
+                        </div>
+                        <div class="col-6 col-12-xsmall">
+                            <input type="text" name="name" id="name" value="" placeholder="Number of Teaching Staffs" />
+                        </div>
+                        <div class="col-6 col-12-xsmall">
+                            <input type="text" name="name" id="name" value="" placeholder="Number of Students" />
+                        </div>
+                         <div class="col-6 col-12">
+                            <input type="text" name="name" id="name" value="" placeholder="Annual Average Graduates (In Numbers)" />
+                        </div>
+
+                        <div class="col-6 col-12">
+                            <input style="width: 100%;" type="submit" value="Submit Response" class="primary" /></li>                           
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+
+    </div>
+</div>
+

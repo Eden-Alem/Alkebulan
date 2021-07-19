@@ -1,0 +1,62 @@
+@model IEnumerable<Datien.Models.HealthInstitution>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@{Layout="../Shared/_HomeLayout.cshtml";}
+<!-- Main -->
+<div id="main" class="wrapper style1">
+    <div class="container">
+        <header class="major">
+            <h2>Health Institute</h2>
+            <p>Good Health and Well being in Africa</p>
+        </header>
+
+        <!-- Text -->
+            <section>
+
+                <blockquote>Please situate your sit at the place of your institution while filling in these data. Thank you for taking an initiative as an institution to help contribute on reliable data availability. Become a change-maker and help represent your country. It starts with you!</blockquote>
+                
+            </section>
+
+        <!-- Form -->
+            <section>
+                <form method="post" action="#">
+                    <div class="row gtr-uniform gtr-50">
+                        <div class="col-6 col-12-xsmall">
+                            <input type="text" name="name" id="name" value="" placeholder="Institution Name" />
+                        </div>
+                        <div class="col-6 col-12-xsmall">
+                            <input type="email" name="email" id="email" value="" placeholder="Full Name" />
+                        </div>
+                        <div class="col-6 col-12">
+                            <input type="text" name="name" id="name" value="" placeholder="Type of the healthcare facility (Eg - Clinic and medical office, Hospital, Birth Center" />
+                        </div>
+                        <div class="col-6 col-12">
+                            <label>Legal Certificate</label>
+                            <input type="file" name="name" id="name" value="" placeholder="Legal Certificate" />
+                        </div>
+                        <div class="col-6 col-12">
+                            <input type="text" name="name" id="name" value="" placeholder="Country" />
+                        </div>
+                        <div class="col-6 col-12-xsmall">
+                            <input type="text" name="name" id="name" value="" placeholder="Number of Healthcare Specialists" />
+                        </div>
+                        <div class="col-6 col-12-xsmall">
+                            <input type="text" name="name" id="name" value="" placeholder="Number of Health Equipments" />
+                        </div>
+                         <div class="col-6 col-12">
+                            <input type="text" name="name" id="name" value="" placeholder="Daily Average Patients (In Numbers)" />
+                        </div>
+
+                        <div class="col-6 col-12">
+                            <input style="width: 100%;" type="submit" value="Submit Response" class="primary" /></li>                           
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+
+    </div>
+</div>
