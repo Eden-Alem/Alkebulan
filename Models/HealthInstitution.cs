@@ -26,13 +26,13 @@ namespace Datien.Models
         public string LegalCertificate { get; set; }
 
         [Display(Name = "Health Care Specialists")]
-        public string HealthCareSpecialists { get; set; }
+        public int HealthCareSpecialists { get; set; }
 
         [Display(Name = "Health Equipments")]
-        public string HealthEquipments { get; set; }
+        public int HealthEquipments { get; set; }
         
         [Display(Name = "Daily Average Patients")]
-        public string DailyAveragePatients { get; set; }
+        public int DailyAveragePatients { get; set; }
 
         [Display(Name = "Latitude")]
         public decimal Latitude { get; set; }

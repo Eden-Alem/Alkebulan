@@ -32,8 +32,21 @@
 						</ul>
 					</nav>
 				</header>
+               	<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							@RenderSection("Slider", required: false)
+						</header>
 
-                @RenderBody()
+							<!-- Content -->
+							<section id="content">
+								
+								@RenderBody()
+							</section>
+
+					</div>
+				</div>
 
 
                 <!-- Footer -->

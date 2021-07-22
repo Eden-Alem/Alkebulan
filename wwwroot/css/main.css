@@ -4344,3 +4344,20 @@ body.is-preload #banner:after {
 *, *:before, *:after {
     box-sizing: inherit;
 }
+
+.scrolling-wrapper {
+	overflow-x: scroll;
+	overflow-y: hidden;
+	white-space: nowrap;
+} 
+
+.scrolling-wrapper::-webkit-scrollbar {
+	display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+.scrolling-wrapper {
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+  }
+  

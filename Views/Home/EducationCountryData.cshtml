@@ -1,0 +1,125 @@
+@{
+    ViewBag.Title = "Home Page";
+    var entity = ViewBag.entity;
+}
+
+@{Layout="../Shared/_DashboardLayout.cshtml";}
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+<div id="container" style="min-width: 310px; height: 500px; margin: 0 auto"></div>
+
+@section Slider {
+<!-- Buttons -->
+    <section>
+        <div class="row scrolling-wrapper">
+            <div class="col-6 col-12-xsmall">
+                <ul class="actions fit">
+                    @foreach (var entity in Model)
+                    {
+                        <li><a class="button fit large" asp-action="EducationCountryData" asp-route-name="@entity">@entity</a></li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </section>
+}
+
+<script>
+    var Name = @Html.Raw(ViewBag.name);
+
+    $(document).ready(function () {
+        $.getJSON("/Home/GetEducationCountryData", 
+        {
+            name: Name
+
+        },  function (data) {
+            var Names = []
+            var Graduates = []
+            var TeachingStaff = []
+            var Students = []
+            for (var i = 0; i < data.length; i++) {
+                Names.push(data[i].name);
+                Graduates.push(data[i].averageGraduates);
+                TeachingStaff.push(data[i].teachingStaff);
+                Students.push(data[i].students);
+            }
+
+            Highcharts.chart('container', {
+                chart: {
+                    type: 'line'
+                },
+                title: {
+                    text: 'Education Institutions (Country)'
+                },
+                subtitle: {
+                    text: 'Source: Alkebulan'
+                },
+                xAxis: {
+                    categories: Names
+                },
+                yAxis: {
+                    title: {
+                        text: 'Numbers'
+                    }
+                },
+                plotOptions: {
+                    line: {
+                        dataLabels: {
+                            enabled: true
+                        },
+                        enableMouseTracking: false
+                    }
+                },
+                series: [{
+                    name: 'Annual Average Graduates',
+                    data: Graduates
+                }, {
+                    name: "Teaching Staff",
+                    data: TeachingStaff
+                }, {
+                    name: "Students",
+                    data: Students
+                }]
+            });
+
+        });
+    });
+
+
+</script>
+
+
+
+<hr />
+
+<Section>
+<h3>Education Institutions</h3>
+<div class="table-wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th>Institution Name</th>
+                <th>Students</th>
+                <th>Teaching Staff</th>
+                <th>Annual Average Graduates</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var e in entity)
+            {
+                <tr>
+                    <td>@e.FullName</td>
+                    <td>@e.Students</td>
+                    <td>@e.TeachingStaff</td>
+                    <td>@e.AnnualAverageGraduates</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
+</Section>
