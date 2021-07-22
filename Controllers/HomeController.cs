@@ -15,11 +15,6 @@ using Newtonsoft.Json;
 
 namespace Datien.Controllers
 {
-    public class EntityRecordItem 
-        {
-            public string Name {get; set;}
-            public int Count {get; set;}
-        }
     public class HomeController : Controller
     {
         
@@ -31,12 +26,6 @@ namespace Datien.Controllers
         {
             _context = context;
         }
-        // private readonly ILogger<HomeController> _logger;
-
-        // public HomeController(ILogger<HomeController> logger)
-        // {
-        //     _logger = logger;
-        // }
 
         public async Task<IActionResult> EducationIndex()
         {
@@ -56,21 +45,21 @@ namespace Datien.Controllers
         public async Task<IActionResult> Statistics()
         {
             var entities = _context.EducationInstitution
-                   .Select(g => g.InstitutionName).Distinct().ToList();
+                   .Select(g => g.CountryName).Distinct().ToList();
             return View(entities);
         }
 
         public ActionResult GetEducationData()
         {
             var query = _context.EducationInstitution
-                   .GroupBy(p => p.InstitutionName)
+                   .GroupBy(p => p.CountryName)
                    .Select(g => new { name = g.Key, averageGraduates = g.Sum(w => w.AnnualAverageGraduates), teachingStaff = g.Sum(w => w.TeachingStaff), students = g.Sum(w => w.Students) }).ToList();
             return Json(query);
         }
         public ActionResult GetHealthData()
         {
             var query = _context.HealthInstitution
-                   .GroupBy(p => p.InstitutionName)
+                   .GroupBy(p => p.CountryName)
                    .Select(g => new { name = g.Key, averagePatients = g.Sum(w => w.DailyAveragePatients), healthCareSpecialists = g.Sum(w => w.HealthCareSpecialists), healthEquipments = g.Sum(w => w.HealthEquipments) }).ToList();
             return Json(query);
         }
@@ -78,11 +67,11 @@ namespace Datien.Controllers
         public async Task<IActionResult> EducationCountryData(string name)
         {
             var entities = _context.EducationInstitution
-                   .Select(g => g.InstitutionName).Distinct().ToList();
+                   .Select(g => g.CountryName).Distinct().ToList();
 
             
             var entity = (from res in _context.EducationInstitution
-                where res.InstitutionName == name
+                where res.CountryName == name
                 select res).ToList();
                 
             ViewBag.entity = (entity);
@@ -94,8 +83,8 @@ namespace Datien.Controllers
         public ActionResult GetEducationCountryData(string name)
         {
             var result = from res in _context.EducationInstitution
-                where res.InstitutionName == name
-                select new { name = res.FullName, averageGraduates= res.AnnualAverageGraduates, teachingStaff = res.TeachingStaff, students = res.Students };
+                where res.CountryName == name
+                select new { name = res.InstitutionName, averageGraduates= res.AnnualAverageGraduates, teachingStaff = res.TeachingStaff, students = res.Students };
             return Json(result);
         }
 
@@ -103,11 +92,11 @@ namespace Datien.Controllers
         public async Task<IActionResult> HealthCountryData(string name)
         {
             var entities = _context.HealthInstitution
-                   .Select(g => g.InstitutionName).Distinct().ToList();
+                   .Select(g => g.CountryName).Distinct().ToList();
 
             
             var entity = (from res in _context.HealthInstitution
-                where res.InstitutionName == name
+                where res.CountryName == name
                 select res).ToList();
                 
             ViewBag.entity = (entity);
@@ -119,21 +108,21 @@ namespace Datien.Controllers
         public ActionResult GetHealthCountryData(string name)
         {
             var result = from res in _context.HealthInstitution
-                where res.InstitutionName == name
-                select new { name = res.FullName, averagePatients= res.DailyAveragePatients, healthCareSpecialists = res.HealthCareSpecialists, healthEquipments = res.HealthEquipments };
+                where res.CountryName == name
+                select new { name = res.InstitutionName, averagePatients= res.DailyAveragePatients, healthCareSpecialists = res.HealthCareSpecialists, healthEquipments = res.HealthEquipments };
             return Json(result);
         }
         public ActionResult EducationStatistics()
         {
             var entities = _context.EducationInstitution
-                   .Select(g => g.InstitutionName).Distinct().ToList();
+                   .Select(g => g.CountryName).Distinct().ToList();
             return View(entities);
         }
 
         public ActionResult HealthStatistics()
         {
             var entities = _context.HealthInstitution
-                   .Select(g => g.InstitutionName).Distinct().ToList();
+                   .Select(g => g.CountryName).Distinct().ToList();
             return View(entities);
         }
 

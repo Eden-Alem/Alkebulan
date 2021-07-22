@@ -13,11 +13,12 @@ namespace Datien.Data.Migrations
                     EducationID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     InstitutionName = table.Column<string>(type: "TEXT", maxLength: 300, nullable: false),
-                    FullName = table.Column<string>(type: "TEXT", maxLength: 500, nullable: false),
+                    CountryName = table.Column<string>(type: "TEXT", maxLength: 300, nullable: false),
+                    FullName = table.Column<string>(type: "TEXT", maxLength: 500, nullable: true),
                     LegalCertificate = table.Column<string>(type: "TEXT", nullable: true),
-                    TeachingStaff = table.Column<string>(type: "TEXT", nullable: true),
-                    Students = table.Column<string>(type: "TEXT", nullable: true),
-                    AnnualAverageGraduates = table.Column<string>(type: "TEXT", nullable: true),
+                    TeachingStaff = table.Column<int>(type: "INTEGER", nullable: false),
+                    Students = table.Column<int>(type: "INTEGER", nullable: false),
+                    AnnualAverageGraduates = table.Column<int>(type: "INTEGER", nullable: false),
                     Latitude = table.Column<decimal>(type: "TEXT", nullable: false),
                     Longitude = table.Column<decimal>(type: "TEXT", nullable: false)
                 },
@@ -33,11 +34,12 @@ namespace Datien.Data.Migrations
                     HealthID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     InstitutionName = table.Column<string>(type: "TEXT", maxLength: 300, nullable: false),
-                    FullName = table.Column<string>(type: "TEXT", maxLength: 500, nullable: false),
+                    CountryName = table.Column<string>(type: "TEXT", maxLength: 300, nullable: false),
+                    FullName = table.Column<string>(type: "TEXT", maxLength: 500, nullable: true),
                     LegalCertificate = table.Column<string>(type: "TEXT", nullable: true),
-                    HealthCareSpecialists = table.Column<string>(type: "TEXT", nullable: true),
-                    HealthEquipments = table.Column<string>(type: "TEXT", nullable: true),
-                    DailyAveragePatients = table.Column<string>(type: "TEXT", nullable: true),
+                    HealthCareSpecialists = table.Column<int>(type: "INTEGER", nullable: false),
+                    HealthEquipments = table.Column<int>(type: "INTEGER", nullable: false),
+                    DailyAveragePatients = table.Column<int>(type: "INTEGER", nullable: false),
                     Latitude = table.Column<decimal>(type: "TEXT", nullable: false),
                     Longitude = table.Column<decimal>(type: "TEXT", nullable: false)
                 },

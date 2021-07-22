@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Datien.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210711045946_InitialCreate")]
+    [Migration("20210722072600_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,11 +24,15 @@ namespace Datien.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("AnnualAverageGraduates")
+                    b.Property<int>("AnnualAverageGraduates")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CountryName")
+                        .IsRequired()
+                        .HasMaxLength(300)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("FullName")
-                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("TEXT");
 
@@ -46,11 +50,11 @@ namespace Datien.Data.Migrations
                     b.Property<decimal>("Longitude")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Students")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Students")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<string>("TeachingStaff")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("TeachingStaff")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("EducationID");
 
@@ -63,19 +67,23 @@ namespace Datien.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("DailyAveragePatients")
+                    b.Property<string>("CountryName")
+                        .IsRequired()
+                        .HasMaxLength(300)
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("DailyAveragePatients")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("FullName")
-                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("HealthCareSpecialists")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("HealthCareSpecialists")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<string>("HealthEquipments")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("HealthEquipments")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("InstitutionName")
                         .IsRequired()

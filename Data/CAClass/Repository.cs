@@ -34,7 +34,7 @@ namespace Datien.Data.CAClass
             //        .Select(g => new { name = g.Key, count = g.Sum(w => w.Quantity) }).ToList();
             // return Json(query,JsonRequestBehavior.AllowGet);
             var NewsByGener = (from news in Context.EducationInstitution
-                                 where news.InstitutionName == "Alkebulan"
+                                 where news.CountryName == "Alkebulan"
                                  select news).ToList();
 
             return NewsByGener;

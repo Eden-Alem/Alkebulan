@@ -16,10 +16,16 @@ namespace Datien.Models
         [Required(ErrorMessage = "{0} is required ")]
         public string InstitutionName { get; set; }
 
+        [Display(Name = "Country")]
+        [StringLength(300)]
+        [Required(ErrorMessage = "{0} is required ")]
+        public string CountryName { get; set; }
+
         [Display(Name = "Full Name")]
         [StringLength(500)]
-        [Required(ErrorMessage = "{0} is required ")]
+        // [Required(ErrorMessage = "{0} is required ")]
         public string FullName { get; set; }
+        
 
         [Display(Name = "Legal Certificate")]
         // [Required(ErrorMessage = "{0} is required ")]

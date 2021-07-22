@@ -54,7 +54,7 @@ namespace Datien.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EducationID,InstitutionName,FullName,LegalCertificate,TeachingStaff,Students,AnnualAverageGraduates,Latitude,Longitude")] EducationInstitution educationInstitution)
+        public async Task<IActionResult> Create([Bind("EducationID,CountryName,InstitutionName,LegalCertificate,TeachingStaff,Students,AnnualAverageGraduates,Latitude,Longitude")] EducationInstitution educationInstitution)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace Datien.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EducationID,InstitutionName,FullName,LegalCertificate,TeachingStaff,Students,AnnualAverageGraduates,Latitude,Longitude")] EducationInstitution educationInstitution)
+        public async Task<IActionResult> Edit(int id, [Bind("EducationID,CountryName,InstitutionName,LegalCertificate,TeachingStaff,Students,AnnualAverageGraduates,Latitude,Longitude")] EducationInstitution educationInstitution)
         {
             if (id != educationInstitution.EducationID)
             {
