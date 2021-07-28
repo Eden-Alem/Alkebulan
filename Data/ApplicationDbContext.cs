@@ -16,5 +16,6 @@ namespace Datien.Data
 
         public DbSet<EducationInstitution> EducationInstitution { get; set; }
         public DbSet<HealthInstitution> HealthInstitution { get; set; }
+        public DbSet<User> User { get; set; }
     }
 }

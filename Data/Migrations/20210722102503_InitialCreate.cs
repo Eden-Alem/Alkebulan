@@ -47,6 +47,24 @@ namespace Datien.Data.Migrations
                 {
                     table.PrimaryKey("PK_HealthInstitution", x => x.HealthID);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "User",
+                columns: table => new
+                {
+                    UserID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    FirstName = table.Column<string>(type: "TEXT", maxLength: 300, nullable: true),
+                    LastName = table.Column<string>(type: "TEXT", maxLength: 300, nullable: true),
+                    Username = table.Column<string>(type: "TEXT", maxLength: 300, nullable: true),
+                    UserEmail = table.Column<string>(type: "TEXT", maxLength: 300, nullable: false),
+                    Password = table.Column<string>(type: "TEXT", maxLength: 300, nullable: false),
+                    ConfirmPassword = table.Column<string>(type: "TEXT", maxLength: 300, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_User", x => x.UserID);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -56,6 +74,9 @@ namespace Datien.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "HealthInstitution");
+
+            migrationBuilder.DropTable(
+                name: "User");
         }
     }
 }

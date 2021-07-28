@@ -12,6 +12,7 @@ using Datien.Data.CAInterface;
 using Datien.Data.CAClass;
 using Datien.Data;
 using Newtonsoft.Json;
+using Microsoft.EntityFrameworkCore;
 
 namespace Datien.Controllers
 {
@@ -32,12 +33,43 @@ namespace Datien.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EducationIndex([Bind("EducationID,CountryName,InstitutionName,LegalCertificate,TeachingStaff,Students,AnnualAverageGraduates,Latitude=4.9,Longitude=4.9")] EducationInstitution educationInstitution)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(educationInstitution);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(EducationIndex));
+            }
+            return View(educationInstitution);
+        }
+
         public async Task<IActionResult> HealthIndex()
         {
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> HealthIndex([Bind("HealthID,CountryName,InstitutionName,LegalCertificate,HealthCareSpecialists,HealthEquipments,DailyAveragePatients,Latitude=4.9,Longitude=4.9")] HealthInstitution healthInstitution)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(healthInstitution);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(healthInstitution);
+        }
+
         public async Task<IActionResult> About()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> AboutUs()
         {
             return View();
         }
@@ -124,6 +156,57 @@ namespace Datien.Controllers
             var entities = _context.HealthInstitution
                    .Select(g => g.CountryName).Distinct().ToList();
             return View(entities);
+        }
+
+        public ActionResult LoginUser()
+        {
+            if (TempData["UserEmail"] != null)  return RedirectToAction(nameof(Statistics));
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult LoginUser(string email, string password)
+        {            
+            try
+            {
+                var user = _context.User.FirstOrDefault(u => u.UserEmail == email);
+                if (user != null)
+                {
+                    Dictionary<string, string> c = new Dictionary<string, string>();
+                    TempData["email"] = user.UserEmail;
+                    TempData["password"] = user.Password;  
+                    return RedirectToAction(nameof(Statistics));                  
+                }
+                return View();
+            }
+            catch (Exception)
+            {
+                return RedirectToAction(nameof(Index));
+                throw;
+            }
+        }
+
+        public ActionResult Logout()
+        {
+            TempData["email"] = null;
+            TempData["password"] = null;
+            
+            return RedirectToAction(nameof(LoginUser));
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RegisterUser([Bind("FirstName,LastName,Username,UserEmail,Password,ConfirmPassword")] User User)
+        {
+            if (ModelState.IsValid)
+            {
+                
+                _context.Add(User);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Statistics));
+            }
+            return RedirectToAction(nameof(LoginUser));
         }
 
         public IActionResult Index()

@@ -99,7 +99,7 @@ input, select, textarea {
 		transition: none !important;
 	}
 
-	body, input, select, textarea {
+	body, input, select, textarea, label {
 		color: rgba(255, 255, 255, 0.75);
 		font-family: "Roboto", Helvetica, sans-serif;
 		font-size: 15pt;

@@ -1,4 +1,4 @@
-@model IEnumerable<Datien.Models.HealthInstitution>
+@model Datien.Models.HealthInstitution
 
 @{
     ViewData["Title"] = "Index";
@@ -20,8 +20,68 @@
                 
             </section>
 
+    <form asp-action="HealthIndex">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row gtr-uniform gtr-50">
+                <div class="col-6 col-12-xsmall">
+                    <input asp-for="InstitutionName" type="text"  placeholder="Institution Name" />
+                    <span asp-validation-for="InstitutionName" class="text-danger"></span>
+                </div>
+                <div class="col-6 col-12-xsmall">
+                    <input asp-for="FullName" type="text" placeholder="Full Name" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+                <div class="col-12">
+                    <input type="text" name="name" id="name" value="" placeholder="Type of the healthcare facility (Eg - Clinic and medical office, Hospital, Birth Center" />
+                </div>
+                <div class="col-6 col-12">
+                    <label style="margin: 0;  font-family: Roboto; font-size: 15pt; font-weight: 100;
+		line-height: 1.75em;">Legal Certificate</label>
+                    <input asp-for="LegalCertificate" type="file" placeholder="Legal Certificate" />
+                    <span asp-validation-for="LegalCertificate" class="text-danger"></span>
+                </div>
+                <div class="col-6 col-12">
+                    <input asp-for="CountryName" type="text" placeholder="Country" />
+                    <span asp-validation-for="CountryName" class="text-danger"></span>
+                </div>
+                <div class="col-6 col-12-xsmall">
+                    <label class="form-label" style="margin: 0; font-family: Roboto; font-size: 15pt; font-weight: 100;
+		line-height: 1.75em;">Number of HealthCare Specialists</label>
+                    <input asp-for="HealthCareSpecialists" class="form-control" style="background-color: #1c1d26; width: 100%; height: 70%; border-width:0.01px;"/>
+                    <span asp-validation-for="HealthCareSpecialists" class="text-danger"></span>
+                </div>
+                <div class="col-6 col-12-xsmall">    
+                    <label class="form-label" style="margin: 0; font-family: Roboto; font-size: 15pt; font-weight: 100;
+		line-height: 1.75em;" >Number of Health Equipments</label>              
+                    <input asp-for="HealthEquipments" class="form-control" style="background-color: #1c1d26; width: 100%; height: 70%; border-width:0.01px;" />
+                    <span asp-validation-for="HealthEquipments" class="text-danger"></span>
+                </div>
+                <br> <br> <br> <br>
+                <div class="col-6 col-12">
+                    <label class="form-label" style="margin: 0; font-family: Roboto; font-size: 15pt; font-weight: 100;
+		line-height: 1.75em;">Daily Average Patients(In Numbers)</label>
+                    <input asp-for="DailyAveragePatients" class="form-control" style="background-color: #1c1d26; width: 100%; height: 70%; border-width:0.01px;" />
+                    <span asp-validation-for="DailyAveragePatients" class="text-danger"></span>
+                </div>
+                @* <div class="form-group">
+                    <label asp-for="Latitude" class="control-label"></label>
+                    <input asp-for="Latitude" class="form-control" />
+                    <span asp-validation-for="Latitude" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Longitude" class="control-label"></label>
+                    <input asp-for="Longitude" class="form-control" />
+                    <span asp-validation-for="Longitude" class="text-danger"></span>
+                </div> *@
+                <div class="col-6 col-12">
+                    <input style="width: 100%;" type="submit" value="Submit Response" class="primary" /></li>                           
+                </div>
+
+            </div>
+            
+    </form>
         <!-- Form -->
-            <section>
+            @* <section>
                 <form method="post" action="#">
                     <div class="row gtr-uniform gtr-50">
                         <div class="col-6 col-12-xsmall">
@@ -55,7 +115,7 @@
                         </div>
                     </div>
                 </form>
-            </section>
+            </section> *@
 
 
     </div>

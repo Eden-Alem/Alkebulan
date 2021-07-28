@@ -1,0 +1,91 @@
+@model Datien.Models.User
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@{Layout="../Shared/_AuthenticationLayout.cshtml";}
+
+
+<div class="container" id="container" style="height: 70vh;">
+	<div class="form-container sign-up-container">
+
+
+		<form asp-action="RegisterUser">
+			<h1>Create Account</h1>
+			<br>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="FirstName" class="form-control" placeholder="First Name"/>
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+			<div class="form-group">
+                <input asp-for="LastName" class="form-control" placeholder="Last Name"/>
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Username" class="form-control" placeholder="Username"/>
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+			<div class="form-group">
+                <input asp-for="UserEmail" class="form-control"  placeholder="UserEmail" />
+                <span asp-validation-for="UserEmail" class="text-danger"></span>
+            </div> 
+            <div class="form-group">
+                <input asp-for="Password" type="password" class="form-control" placeholder="Password"/>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Confirm Password"/>
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <br>
+			<button id="btnSubmit" type="submit" class="btn btn-primary" >Sign Up</button>
+		
+		<div style="margin-top: 20%; padding-bottom: 0; margin-bottom: 0;">
+			<a asp-action="Index" style="color: black; font-size: 13px;" > <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to homepage  </a>
+		</div>
+        </form>
+
+	</div>
+
+	<div class="form-container sign-in-container">
+		<form asp-action="LoginUser">
+			<h1>Sign in</h1>
+			<br><br>
+
+			<div class="form-group">
+                <input asp-for="UserEmail" name="email" class="form-control" id="email" type="email" placeholder="Email" />
+                <span asp-validation-for="UserEmail" class="text-danger"></span>
+            </div>
+			<div class="form-group">
+                <input asp-for="Password" name="password" class="form-control" id="password" type="password" placeholder="Password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+			<a href="#">Forgot your password?</a>
+			<br>
+			<button id="btnSubmit" type="submit" class="btn btn-primary" >Sign In</button>
+
+		<div style="margin-top: 40%; padding-bottom: 0; margin-bottom: 0;">
+			<a asp-action="Index" style="color: black; font-size: 13px;" > <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to homepage  </a>
+		</div>
+		</form>
+	</div>
+
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, there!</h1>
+				<p>Enter your personal details and start your journey with us</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+

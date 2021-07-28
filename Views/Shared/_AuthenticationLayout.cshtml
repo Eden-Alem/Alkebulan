@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Alkebulan</title>
+
+    <link href="~/css/authentication.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/fontawesome-all.min.css">
+
+</head>
+<body>
+
+            @RenderBody()
+
+    <script src="~/js/authentication.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

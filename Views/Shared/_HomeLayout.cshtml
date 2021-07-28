@@ -10,13 +10,14 @@
 
 		
     	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    	<link rel="stylesheet" href="~/css/fontawesome-all.min.css">
 	</head>
 	<body class="is-preload landing">
 		<div id="page-wrapper">
 
 			<!-- Header -->
 				<header id="header">
-					<h1 id="logo"><a asp-action="Index">ALKEBULAN</a></h1>
+					<h1 id="logo"><a asp-action="Index"><img src="~/css/images/Alkebulan.png" alt="Alkebulan's logo" srcset="" style="height: 4rem; width: 8rem; margin-top:0.5rem;"></a></h1>
 					<nav id="nav">
 						<ul>
 							<li><a asp-action="Index">Home</a></li>
@@ -28,7 +29,7 @@
 								</ul>
 							</li>
 							<li><a asp-action="About">About Us</a></li>
-							<li><a href="#" class="button primary">Sign Up</a></li>
+							<li><a asp-action="LoginUser" class="button primary">Sign Up</a></li>
 						</ul>
 					</nav>
 				</header>
@@ -62,6 +63,9 @@
 			<script src="~/js/breakpoints.min.js"></script>
 			<script src="~/js/util.js"></script>
 			<script src="~/js/main.js"></script>
+
+			
+    @await RenderSectionAsync("Scripts", required: false)
            
 	</body>
 </html>

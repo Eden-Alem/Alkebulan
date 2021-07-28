@@ -227,3 +227,7 @@
 /home/edenalem/Documents/Es Sachen/C#/Datien/obj/Debug/net5.0/Razor/Views/Home/HealthStatistics.cshtml.g.cs
 /home/edenalem/Documents/Es Sachen/C#/Datien/obj/Debug/net5.0/Razor/Views/Home/EducationCountryData.cshtml.g.cs
 /home/edenalem/Documents/Es Sachen/C#/Datien/obj/Debug/net5.0/Razor/Views/Home/HealthCountryData.cshtml.g.cs
+/home/edenalem/Documents/Es Sachen/C#/Datien/obj/Debug/net5.0/Razor/Views/Shared/_AuthenticationLayout.cshtml.g.cs
+/home/edenalem/Documents/Es Sachen/C#/Datien/obj/Debug/net5.0/Razor/Views/Home/AboutUs.cshtml.g.cs
+/home/edenalem/Documents/Es Sachen/C#/Datien/obj/Debug/net5.0/Razor/Views/Home/LoginUser.cshtml.g.cs
+/home/edenalem/Documents/Es Sachen/C#/Datien/obj/Debug/net5.0/Razor/Views/Education/Index.cshtml.g.cs
